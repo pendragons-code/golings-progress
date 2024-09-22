@@ -1,7 +1,6 @@
 // structs2
 // Make me compile!
 //
-// I AM NOT DONE
 package main
 
 import "fmt"
@@ -12,8 +11,15 @@ type Person struct {
 	age int
 }
 
+// I sure as hell hope this is what they mean by embed a new structure
+type ContactDetails struct {
+	Person
+	phone string
+}
+
 func main() {
 	// contactDetails := ContactDetails{}
-	person := Person{name: "John", age: 32}
+	var person = ContactDetails{Person: Person {"John", 10}}
+	person.phone = "11111111"
 	fmt.Printf("%s is %d years old and his phone is %s\n", person.name, person.age, person.phone)
 }

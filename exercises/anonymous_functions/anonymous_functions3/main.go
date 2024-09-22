@@ -1,22 +1,22 @@
 // anonymous functions3
 // Make me compile!
 
-// I AM NOT DONE
 package main
 
 import "fmt"
 
 func updateStatus() func() string {
-	var index int
+	var index int = 1
 	orderStatus := map[int]string{
 		1: "TO DO",
 		2: "DOING",
 		3: "DONE",
 	}
+	
 
 	return func() string {
 		index++
-		return "What should I return?"
+		return orderStatus[index]
 	}
 }
 

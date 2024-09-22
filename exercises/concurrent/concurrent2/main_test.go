@@ -1,12 +1,15 @@
 // concurrent2
 // Make the tests pass!
 
-// I AM NOT DONE
 package main_test
 
 import (
 	"sync"
 	"testing"
+)
+
+var (
+	mutex sync.Mutex
 )
 
 func TestCounter(t *testing.T) {
@@ -24,7 +27,10 @@ func updateCounter() int {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
+			mutex.Lock()
 			counter++ // Many goroutines trying to update the counter? We need some protection here!
+			mutex.Unlock()
+			// https://reliasoftware.com/blog/concurrency-in-golang
 		}()
 	}
 	wg.Wait()

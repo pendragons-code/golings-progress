@@ -1,7 +1,6 @@
 // generics1
 // Make me compile!
 
-// I AM NOT DONE
 package main
 
 import "fmt"
@@ -11,6 +10,8 @@ func main() {
 	print(42)
 }
 
-func print(value) {
+func print[T any](value T) {
 	fmt.Println(value)
 }
+
+// https://bitfieldconsulting.com/posts/type-parameters

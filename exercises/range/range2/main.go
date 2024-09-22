@@ -1,7 +1,5 @@
 // range2
 // Make me compile!
-//
-// I AM NOT DONE
 package main
 
 import "fmt"
@@ -12,7 +10,9 @@ func main() {
 		"John": "+01 333 666",
 	}
 
-	for := range {
+	for name, phone := range phoneBook {
 		fmt.Printf("%s has the %s phone\n", name, phone)
 	}
 }
+
+// digital ocean coming in as a clutch https://www.digitalocean.com/community/tutorials/understanding-maps-in-go
